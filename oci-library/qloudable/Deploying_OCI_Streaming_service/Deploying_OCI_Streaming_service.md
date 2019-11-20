@@ -6,7 +6,7 @@
 
 [Pre-Requisites](#pre-requisites)
 
-[Sign in to OCI Console and create compute instance](#sign-in-to-oci-console-and-create-compute)
+[Sign in to OCI Console and create compute instance](#sign-in-to-oci-console-and-create-compute-instance)
 
 [Download Script to configure Streaming service and Publish messages](#download-script-to-configure-streaming-service-and-publish-messages)
 
