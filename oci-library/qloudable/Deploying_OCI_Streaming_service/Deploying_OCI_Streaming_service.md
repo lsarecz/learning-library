@@ -6,38 +6,29 @@
 
 [Pre-Requisites](#pre-requisites)
 
-[Sign in to OCI Console and create VCN](#sign-in-to-oci-console-and-create-vcn)
-
-[Create ssh keys and compute instance](#create-ssh-keys-and-compute-instance)
+[Sign in to OCI Console and create compute instance](#sign-in-to-oci-console-and-create-compute)
 
 [Download Script to configure Streaming service and Publish messages](#download-script-to-configure-streaming-service-and-publish-messages)
-
-[Delete the resources](#delete-the-resources)
-
 
 ## Overview
 
 In this lab we will create a compute instance, download a script to configure streaming service, publish and consume messages.The Oracle Cloud Infrastructure Streaming service provides a fully managed, scalable, and durable storage solution for ingesting continuous, high-volume streams of data that you can consume and process in real time. Streaming can be used for messaging, ingesting high-volume data such as application logs, operational telemetry, web Click-stream data, or other use cases in which data is produced and processed continually and sequentially in a publish-subscribe messaging model.
 
-**Some Key points;**
+**Some Key points:**
 
 **We recommend using Chrome or Edge as the broswer. Also set your browser zoom to 80%**
 
 
 - All screen shots are examples ONLY. Screen shots can be enlarged by Clicking on them
 
-- Login credentials are provided later in the guide (scroll down). Every User MUST keep these credentials handy.
+- Everyone should use his own SSO account.
 
-- Do NOT use compartment name and other data from screen shots.Only use  data(including compartment name) provided in the content section of the lab
+- SSH key pair will be provided for your convenience, but you may create your own.
+
+- Do NOT use compartment name and other data from screen shots. Only use data (including compartment name) provided in the content section of the lab
 
 - Mac OS Users should use ctrl+C / ctrl+V to copy and paste inside the OCI Console
 
-- Login credentials are provided later in the guide (scroll down). Every User MUST keep these credentials handy.
-
-**Cloud Tenant Name**
-**User Name**
-**Password**
-**Compartment Name (Provided Later)**
 
 **Note:** OCI UI is being updated thus some screenshots in the instructions might be different than actual UI
 
@@ -53,18 +44,11 @@ In this lab we will create a compute instance, download a script to configure st
 
 5. Connecting to a compute instance: https://docs.us-phoenix-1.oraclecloud.com/Content/Compute/Tasks/accessinginstance.htm
 
-## Sign in to OCI Console and create VCN
-
-* **Tenant Name:** {{Cloud Tenant}}
-* **User Name:** {{User Name}}
-* **Password:** {{Password}}
-* **Compartment:**{{Compartment}}
+## Sign in to OCI Console and create compute instance
 
 **Note:** OCI UI is being updated thus some screenshots in the instructions might be different than actual UI
 
-1. Sign in using your tenant name, user name and password. Use the login option under **Oracle Cloud Infrastructure**
-
-<img src="https://raw.githubusercontent.com/oracle/learning-library/master/oci-library/qloudable/Grafana/img/Grafana_015.PNG" alt="image-alt-text">
+1. Sign in using your SSO account to the oraseemeaceeociworkshop tenant.
 
 2. Select the Budapest compartment (within Workshops compartment) from drop down menu on left part of the screen
 
