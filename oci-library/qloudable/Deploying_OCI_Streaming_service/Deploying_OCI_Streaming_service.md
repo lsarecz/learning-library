@@ -6,7 +6,9 @@
 
 [Pre-Requisites](#pre-requisites)
 
-[Sign in to OCI Console and create compute instance](#sign-in-to-oci-console-and-create-compute-instance)
+[Sign in to OCI Console and create your own compartment](#sign-in-to-oci-console-and-create-your-own-compartment)
+
+[Create compute instance within your own compartment](#create-compute-instance-within-your-own-compartment)
 
 [Download Script to configure Streaming service and Publish messages](#download-script-to-configure-streaming-service-and-publish-messages)
 
@@ -44,17 +46,28 @@ In this lab we will create a compute instance, download a script to configure st
 
 5. Connecting to a compute instance: https://docs.us-phoenix-1.oraclecloud.com/Content/Compute/Tasks/accessinginstance.htm
 
-## Sign in to OCI Console and create compute instance
+## Sign in to OCI Console and create your own compartment
 
 **Note:** OCI UI is being updated thus some screenshots in the instructions might be different than actual UI
 
 1. Sign in using your SSO account to the oraseemeaceeociworkshop tenant.
 
-2. Select the Budapest compartment (within Workshops compartment) from drop down menu on left part of the screen
+2. From OCI servies menu, Click **Identity** under **Compartments**
 
-3. From OCI servies menu, Click **Instances** under **Compute** 
+3. Click on **Create Compartment** button
 
-4. Click Create Instance. Fill out the dialog box:
+4. Give a name to your compartment and select **Workshops** as the parent compartment. You will use this compartment throughout this training.
+
+5. Click **Create Compartment**. 
+
+
+## Create compute instance within your own compartment
+
+1. From OCI servies menu, Click **Instances** under **Compute**
+
+2. Select the compartment you just created (within Workshops compartment) from drop down menu on left part of the screen
+
+3. Click **Create Instance**. Fill out the dialog box:
 
 
 - **Name:** Enter a name 
@@ -77,11 +90,11 @@ In this lab we will create a compute instance, download a script to configure st
 - **Boot Volume:** Leave the default
 - **Add SSH Keys:** Choose 'Paste SSH Keys' and paste the Public Key the instructors provided (or you may use your own).
 
-5. Click **Create**
+4. Click **Create**
 
 <img src="https://raw.githubusercontent.com/oracle/learning-library/master/oci-library/qloudable/OCI_Quick_Start/img/RESERVEDIP_HOL0011.PNG" alt="image-alt-text">
 
-6. Wait for Instance to be in **Running** state. In git-bash Enter Command:
+5. Wait for Instance to be in **Running** state. In git-bash Enter Command:
 ```
  cd .ssh
 ```
@@ -90,20 +103,20 @@ If you don't have .ssh folder yet, create it first:
  mkdir .ssh
  cd .ssh
 ```
-7. Enter **ls** and verify the right id_rsa file exists. If not, copy the file you got from the instructors
+6. Enter **ls** and verify the right id_rsa file exists. If not, copy the file you got from the instructors
 
-8. Enter command 
+7. Enter command 
 ```
 ssh -i id_rsa opc@<PUBLIC_IP_OF_COMPUTE>
 ```
 
 **HINT:** If 'Permission denied error' is seen, ensure you are using '-i' in the ssh command
 
-9. Enter 'Yes' when prompted for security message
+8. Enter 'Yes' when prompted for security message
 
 <img src="https://raw.githubusercontent.com/oracle/learning-library/master/oci-library/qloudable/OCI_Quick_Start/img/RESERVEDIP_HOL0014.PNG" alt="image-alt-text">
  
-10. Verify opc@<COMPUTE_INSTANCE_NAME> appears on the prompt
+9. Verify opc@<COMPUTE_INSTANCE_NAME> appears on the prompt
 
 ## Download Script to configure Streaming service and Publish messages
 
@@ -165,7 +178,7 @@ sudo python get-pip.py
 sudo pip install virtualenv
 ```
 
-9. Now create a virtual environment, Enter command:
+10. Now create a virtual environment, Enter command:
 
 ```
 virtualenv <Environment_Name>
@@ -179,7 +192,7 @@ Now initialize the virtual enviornment, Enter command:
 source ~/stream_env/bin/activate
 ```
 
-10. Once your virtual environment is active, oci can be installed using pip, Enter command:
+11. Once your virtual environment is active, oci can be installed using pip, Enter command:
 
 ```
 pip install oci
@@ -187,7 +200,7 @@ pip install oci
 
 <img src="https://raw.githubusercontent.com/oracle/learning-library/master/oci-library/qloudable/Deploying_OCI_Streaming_service/img/Stream_008.PNG" alt="image-alt-text">
 
-11. Now download the main script file though first we will remove the existing file, Enter Command:
+12. Now download the main script file though first we will remove the existing file, Enter Command:
 
 ```
 cd /home/opc
@@ -199,7 +212,7 @@ rm stream_example.py
 wget https://raw.githubusercontent.com/oracle/learning-library/master/oci-library/qloudable/Deploying_OCI_Streaming_service/stream_example.py
 ```
 
-12. Now download a dependent script file though first we will remove the existing file, Enter Command:
+13. Now download a dependent script file though first we will remove the existing file, Enter Command:
 
 ```
 cd /home/opc/stream_env/lib/python2.7/site-packages/oci/streaming/
@@ -211,9 +224,9 @@ rm stream_admin_client_composite_operations.py
 wget https://raw.githubusercontent.com/oracle/learning-library/master/oci-library/qloudable/Deploying_OCI_Streaming_service/stream_admin_client_composite_operations.py
 ```
 
-13. Our setup is now ready. Before running the script switch to OCI Console window, from the main menu Click **Compartments** under **Identity**. Click your compartment name and copy the OCID of the compartment. (Just as was done for user OCID earlier)
+14. Our setup is now ready. Before running the script switch to OCI Console window, from the main menu Click **Compartments** under **Identity**. Click your compartment name and copy the OCID of the compartment. (Just as was done for user OCID earlier)
 
-14. Switch to ssh session and run the script, Enter command:
+15. Switch to ssh session and run the script, Enter command:
 
 ```
 python ~/stream_example.py <COMPARTMENT_OCID>
@@ -223,7 +236,7 @@ For example :
 
 python ~/stream_example.py ocid1.compartment.oc1..aaaaaaaada2gaukcqoagqoshxq2pyt6cdsj2mhnrz3p5nke33ljx2bp476wq
 
-15. Follow the prompts of the script. The script will create Streaming service called **SdkExampleStream**. It will publish 100 messages, create 2 groups on the compute and read those messages. Finally it will delete the streaming service. **You will be prompted to hit enter after verifying each step**
+16. Follow the prompts of the script. The script will create Streaming service called **SdkExampleStream**. It will publish 100 messages, create 2 groups on the compute and read those messages. Finally it will delete the streaming service. **You will be prompted to hit enter after verifying each step**
 
 ***Congratulations! You have successfully completed the lab. ***
 
