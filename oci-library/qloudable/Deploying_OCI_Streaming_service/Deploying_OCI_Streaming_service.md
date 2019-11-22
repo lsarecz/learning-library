@@ -50,7 +50,7 @@ In this lab we will create a compute instance, download a script to configure st
 
 **Note:** OCI UI is being updated thus some screenshots in the instructions might be different than actual UI
 
-1. Sign in using your SSO account to the oraseemeaceeociworkshop tenant.
+1. [Sign in](https://console.eu-frankfurt-1.oraclecloud.com/a/compute/instances?tenant=oraseemeaceeociworkshop&provider=OracleIdentityCloudService&_adf.ctrl-state=undefined&_afrLoop=undefined) using your SSO account to the oraseemeaceeociworkshop tenant.
 
 2. From OCI servies menu, Click **Identity** under **Compartments**
 
