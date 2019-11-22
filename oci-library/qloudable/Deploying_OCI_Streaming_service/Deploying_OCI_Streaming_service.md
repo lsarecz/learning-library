@@ -60,6 +60,7 @@ In this lab we will create a compute instance, download a script to configure st
 
 5. Click **Create Compartment**. 
 
+<img src="https://github.com/lsarecz/learning-library/blob/master/oci-library/qloudable/Deploying_OCI_Streaming_service/img/Compartment.png" alt="image-alt-text">
 
 ## Create compute instance within your own compartment
 
