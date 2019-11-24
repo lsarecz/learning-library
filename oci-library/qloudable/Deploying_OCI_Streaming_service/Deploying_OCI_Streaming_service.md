@@ -14,7 +14,7 @@
 
 ## Overview
 
-In this lab we will create a compute instance, download a script to configure streaming service, publish and consume messages.The Oracle Cloud Infrastructure Streaming service provides a fully managed, scalable, and durable storage solution for ingesting continuous, high-volume streams of data that you can consume and process in real time. Streaming can be used for messaging, ingesting high-volume data such as application logs, operational telemetry, web Click-stream data, or other use cases in which data is produced and processed continually and sequentially in a publish-subscribe messaging model.
+In this lab we will create a compute instance, which will be used for other labs, as well during this 3 days training. Once the instance is deployed, download a script to configure streaming service, publish and consume messages. The Oracle Cloud Infrastructure Streaming service provides a fully managed, scalable, and durable storage solution for ingesting continuous, high-volume streams of data that you can consume and process in real time. Streaming can be used for messaging, ingesting high-volume data such as application logs, operational telemetry, web Click-stream data, or other use cases in which data is produced and processed continually and sequentially in a publish-subscribe messaging model.
 
 **Some Key points:**
 
@@ -71,24 +71,19 @@ In this lab we will create a compute instance, download a script to configure st
 3. Click **Create Instance**. Fill out the dialog box:
 
 
-- **Name:** Enter a name 
-- **Availability Domain:** Select availability domain
+- **Name:** Enter a name
 - **Image Operating System:** Click **Change Image Source**. In the new window, Click **Oracle Images** Choose **Oracle Cloud Developer Image**. Scroll down, Accept the Agreement and Click **Select Image**
+- **Availability Domain:** Select availability domain
 
 <img src="https://raw.githubusercontent.com/oracle/learning-library/master/oci-library/qloudable/Deploying_OCI_Streaming_service/img/Stream_009.PNG" alt="image-alt-text">
 
 
 - **Choose Instance Type:** Select Virtual Machine
 - **Choose Instance Shape:** Select VM shape (Choose from VM.Standard2.1, VM.Standard.E2.1, VM.Standard1.1, VM.Standard.B1.1)
-- **Configure Boot Volume:** Leave the default
-- **Add SSH Keys:** Choose 'Paste SSH Keys' and paste the Public Key saved earlier.
-- **Virtual Cloud Network Compartment:** Choose Budapest compartment
-- **Virtual Cloud Network:** Leave the default VCN, which will be created for you (you may also create your own VCN before) 
-- **Subnet Compartment:** Choose Budapest compartment. 
-- **Subnet:** Keep the default value of Public Subnet (Regional)
-- **Use network security groups to control traffic:** Leave un-checked
+- **Virtual Cloud Network Compartment:** Choose your own compartment
+- **New Virtual Cloud Network:** As we didn't create a VCN yet in this compartment, this wizard will create one for you. You may leave the default name or you can give it a name if you like 
 - **Assign a public IP address:** Check this option
-- **Boot Volume:** Leave the default
+- **Boot Volume:** Leave the default values
 - **Add SSH Keys:** Choose 'Paste SSH Keys' and paste the Public Key the instructors provided (or you may use your own).
 
 4. Click **Create**
@@ -123,6 +118,8 @@ ssh -i id_rsa opc@<PUBLIC_IP_OF_COMPUTE>
 
 1. First we have to configure OCI CLI in ssh session to compute instance. You may want to use your existing private key, if you have an API Key already created. If you don't have an API Key yet, you can skip this step. Otherwise create two files and copy the content of your key pair:
 ```
+mkdir .oci
+cd .oci
 nano oci_api_key.pem
 nano oci_api_key_public.pem
 ```
@@ -131,6 +128,7 @@ Copy&Paste your private key file content.
 Update the permissions of the private key file:
 ```
 chmod 600 oci_api_key.pem
+cd ..
 ```
 2. Now you can configure OCI CLI, Enter command:
 
