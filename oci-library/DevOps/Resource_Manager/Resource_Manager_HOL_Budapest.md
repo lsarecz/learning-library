@@ -32,7 +32,7 @@ The Oracle Cloud Infrastructure Resource Manager is a fully managed service that
 
 ## Practice 1: Configuring IAM to control user access in Resource Manager
 
-**Note:** You can skip the steps below if you are using an user with admin privileges. If this were a real production system, it's both more secure and practical to create additional groups with more granular permissions. For example, it is likely we'd need to create a development team group that can only use predefined stacks and run jobs against it (use-orm-stack and use-orm-job, respectively). [Check Best Practices for IAM](https://docs.cloud.oracle.com/iaas/Content/Security/Concepts/security_features.htm#IdentityandAccessManagementIAMService)
+**Note:** You can skip the steps below as you are using a user with these privileges already in place. If this were a real production system, it's both more secure and practical to create additional groups with more granular permissions. For example, it is likely we'd need to create a development team group that can only use predefined stacks and run jobs against it (use-orm-stack and use-orm-job, respectively). [Check Best Practices for IAM](https://docs.cloud.oracle.com/iaas/Content/Security/Concepts/security_features.htm#IdentityandAccessManagementIAMService)
 
 1. Create a Policy by clicking on **Menu** --> **Identity** --> **Policies**
 2. Click **Create Policies**
@@ -47,7 +47,7 @@ The Oracle Cloud Infrastructure Resource Manager is a fully managed service that
 
 ## Practice 2: Create Resource Manager Stack
 
- A Stack represents definitions for a collection of OCI resources within a specific compartment. With this in mind, we're going to configure a new stack in the OCI-ORM compartment in the us-phoenix-1 region and name it "HA Load Balanced Simple Web App". As the stack's name suggests, its configuration files define the load balancing, networking, and compute resources to deploy the target architecture plus an HTTP server. 
+A Stack represents definitions for a collection of OCI resources within a specific compartment. With this in mind, we're going to configure a new stack in the OCI-ORM compartment in the us-phoenix-1 region and name it "HA Load Balanced Simple Web App". As the stack's name suggests, its configuration files define the load balancing, networking, and compute resources to deploy the target architecture plus an HTTP server. 
 
  Download [HA Load Balanced Simple Web App](orm-lbaas-demo/orm-lbass-demo.zip) and save to your local machine.
 
@@ -151,7 +151,7 @@ cd .terraform...
 terraform-provider-oci -command=export -compartment_id=<compartment to export> -output_path=<directory under which to generate Terraform files>
 ``
 
-7. Now that we've successfully applied our Terraform to build out our cloud resources, let's return to the Stack Details page and use the Resource Manager to tear it all down by clicking on **Terraform Actions** --> **Destroy** and enter the following information:
+8. Now that we've successfully applied our Terraform to build out our cloud resources, let's return to the Stack Details page and use the Resource Manager to tear it all down by clicking on **Terraform Actions** --> **Destroy** and enter the following information:
 
    - **Name:** *HA LB App Destroy*
    - Click **Destroy**
@@ -159,11 +159,11 @@ terraform-provider-oci -command=export -compartment_id=<compartment to export> -
     ![](img/image014.png)
     ![](img/image015.png)
 
-8. Once again, notice that the state change is reflected in the console:
+9. Once again, notice that the state change is reflected in the console:
 
     ![](img/image016.png)
 
-9. The final step is to delete the stack by clicking on the Delete Stack button on Stack Details page. Click on **Delete Stack** and confirm it by clicking **Delete** on the modal window
+10. The final step is to delete the stack by clicking on the Delete Stack button on Stack Details page. Click on **Delete Stack** and confirm it by clicking **Delete** on the modal window
 
     ![](img/image017.png)
     ![](img/image018.png)
