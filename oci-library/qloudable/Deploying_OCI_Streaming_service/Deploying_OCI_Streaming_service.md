@@ -14,7 +14,7 @@
 
 ## Overview
 
-In this lab we will create a compute instance, which will be used for other labs, as well during this 3 days training. Once the instance is deployed, download a script to configure streaming service, publish and consume messages. The Oracle Cloud Infrastructure Streaming service provides a fully managed, scalable, and durable storage solution for ingesting continuous, high-volume streams of data that you can consume and process in real time. Streaming can be used for messaging, ingesting high-volume data such as application logs, operational telemetry, web Click-stream data, or other use cases in which data is produced and processed continually and sequentially in a publish-subscribe messaging model.
+In this lab we will create a compute instance, which will be used for other labs, as well during this 3 days training. As our request for service limit increase didn't go through yet, we will use qloudable for the Streaming lab, but still you need to create this training instance for other labs, so please continue with this guide first.
 
 **Some Key points:**
 
@@ -176,66 +176,6 @@ sudo python get-pip.py
 ```
 sudo pip install virtualenv
 ```
-
-10. Now create a virtual environment, Enter command:
-
-```
-virtualenv <Environment_Name>
-```
-For example **virtualenv stream_env**
-
-Now initialize the virtual enviornment, Enter command:
-
-**NOTE** : Below command assumes that the enviornment name is 'stream-env'
-```
-source ~/stream_env/bin/activate
-```
-
-11. Once your virtual environment is active, oci can be installed using pip, Enter command:
-
-```
-pip install oci
-```
-
-<img src="https://raw.githubusercontent.com/oracle/learning-library/master/oci-library/qloudable/Deploying_OCI_Streaming_service/img/Stream_008.PNG" alt="image-alt-text">
-
-12. Now download the main script file though first we will remove the existing file, Enter Command:
-
-```
-cd /home/opc
-```
-```
-rm stream_example.py
-```
-```
-wget https://raw.githubusercontent.com/oracle/learning-library/master/oci-library/qloudable/Deploying_OCI_Streaming_service/stream_example.py
-```
-
-13. Now download a dependent script file though first we will remove the existing file, Enter Command:
-
-```
-cd /home/opc/stream_env/lib/python2.7/site-packages/oci/streaming/
-```
-```
-rm stream_admin_client_composite_operations.py
-```
-```
-wget https://raw.githubusercontent.com/oracle/learning-library/master/oci-library/qloudable/Deploying_OCI_Streaming_service/stream_admin_client_composite_operations.py
-```
-
-14. Our setup is now ready. Before running the script switch to OCI Console window, from the main menu Click **Compartments** under **Identity**. Click your compartment name and copy the OCID of the compartment. (Just as was done for user OCID earlier)
-
-15. Switch to ssh session and run the script, Enter command:
-
-```
-python ~/stream_example.py <COMPARTMENT_OCID>
-```
-
-For example : 
-
-python ~/stream_example.py ocid1.compartment.oc1..aaaaaaaada2gaukcqoagqoshxq2pyt6cdsj2mhnrz3p5nke33ljx2bp476wq
-
-16. Follow the prompts of the script. The script will create Streaming service called **SdkExampleStream**. It will publish 100 messages, create 2 groups on the compute and read those messages. Finally it will delete the streaming service. **You will be prompted to hit enter after verifying each step**
 
 ***Congratulations! You have successfully completed the lab. ***
 
