@@ -144,10 +144,32 @@ From the Stack Details page, we can completely manage the stack's configuration 
     ![](img/image012.png)
     ![](img/image013.png)
 
-7. Now that we've successfully applied our Terraform to build out our cloud resources, let's discover it from the command line with the new Terraform Resource Discovery feature of Terraform OCI Provider. In your compute instance execute the following command:
+7. Now that we've successfully applied our Terraform to build out our cloud resources, let's discover it from the command line with the new Terraform Resource Discovery feature of Terraform OCI Provider. First setup Terraform. In your compute instance execute the following command:
 
 ``
-cd .terraform...
+wget https://raw.githubusercontent.com/oracle/learning-library/master/oci-library/qloudable/Infra_Using_Terraform/tf_setup.sh -o tf_setup.sh
+chmod +x tf_setup.sh
+./tf_setup.sh
+``
+
+Now that terraform was installd/updated you need to update the env-vars file to set the right compartment and user OCIDs
+
+``
+cd tflab
+nano env-vars
+``
+
+If your env-vars file is updated, source it to set the environment variables. With that you can initialize the terraform, which will download the oci provider based on the provider segment of tftest.tf file.
+
+``
+source env-vars
+terraform init
+``
+
+Now we are ready to use the terraform-provider-oci to discover the current configuration in your compartment. As Terraform Resource Discovery is not implemented in the core terraform code, but in the oci provider, we have to use directly the terraform-provider-oci, not terraform.
+
+``
+cd .terraform/plugins/linux_amd64/
 terraform-provider-oci -command=export -compartment_id=<compartment to export> -output_path=<directory under which to generate Terraform files>
 ``
 
