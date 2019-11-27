@@ -148,7 +148,7 @@ From the Stack Details page, we can completely manage the stack's configuration 
 7. Now that we've successfully applied our Terraform to build out our cloud resources, let's discover it from the command line with the new Terraform Resource Discovery feature of Terraform OCI Provider. First setup Terraform. In your compute instance execute the following command:
 
     ```
-    wget https://raw.githubusercontent.com/oracle/learning-library/master/oci-library/qloudable/Infra_Using_Terraform/tf_setup.sh -o tf_setup.sh
+    wget https://raw.githubusercontent.com/oracle/learning-library/master/oci-library/qloudable/Infra_Using_Terraform/tf_setup.sh
     chmod +x tf_setup.sh
     ./tf_setup.sh
     ```
