@@ -57,7 +57,8 @@ A Stack represents definitions for a collection of OCI resources within a specif
    - **Select a Terraform Configuration (.zip) File to Upload:** *Upload the zip file [orm-lbass-demo.zip](orm-lbaas-demo/orm-lbass-demo.zip)*
    - **Name:** *HA Load Balanced Simple Web App*
    - **Description:** *Provisions a primary load balancer and a failover load balancer into public subnets distributing load across 2 compute instances hosting a simple web app each in different private subnets*
-   - **Create in Compartment:** *OCI-ORM*
+   - **Create in Compartment:** *<your own compartment>*
+   - **Terraform Version:** *0.11.x*
     
     ![](img/CreateStack01.png)
     
