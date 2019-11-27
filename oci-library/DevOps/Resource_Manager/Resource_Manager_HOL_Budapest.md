@@ -171,6 +171,7 @@ From the Stack Details page, we can completely manage the stack's configuration 
 
     ``
     cd .terraform/plugins/linux_amd64/
+    
     ./terraform-provider-oci_v3.53.0_x4 -command=export -compartment_id=<compartment to export> -output_path=<directory under which to generate Terraform files>
     ``
 
