@@ -155,17 +155,17 @@ From the Stack Details page, we can completely manage the stack's configuration 
 
     Now that terraform was installd/updated you need to update the env-vars file to set the right compartment and user OCIDs
 
-    ``
+    ```
     cd tflab
     nano env-vars
-    ``
+    ```
 
     If your env-vars file is updated, source it to set the environment variables. With that you can initialize the terraform, which will download the oci provider based on the provider segment of tftest.tf file.
 
-    ``
+    ```
     source env-vars
     terraform init
-    ``
+    ```
 
     Now we are ready to use the terraform-provider-oci to discover the current configuration in your compartment. As Terraform Resource Discovery is not implemented in the core terraform code, but in the oci provider, we have to use directly the terraform-provider-oci, not terraform.
 
