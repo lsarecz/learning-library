@@ -171,7 +171,7 @@ From the Stack Details page, we can completely manage the stack's configuration 
 
     ``
     cd .terraform/plugins/linux_amd64/
-    terraform-provider-oci -command=export -compartment_id=<compartment to export> -output_path=<directory under which to generate Terraform files>
+    ./terraform-provider-oci_v3.53.0_x4 -command=export -compartment_id=<compartment to export> -output_path=<directory under which to generate Terraform files>
     ``
 
 8. Now that we've successfully applied our Terraform to build out our cloud resources, let's return to the Stack Details page and use the Resource Manager to tear it all down by clicking on **Terraform Actions** --> **Destroy** and enter the following information:
