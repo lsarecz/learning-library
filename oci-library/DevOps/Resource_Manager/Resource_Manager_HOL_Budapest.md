@@ -64,7 +64,7 @@ A Stack represents definitions for a collection of OCI resources within a specif
     
 3. Click **Next**   
    - **Configure Variables:** (Information gathered from variables.tf file in orm-lbass-demo.zip)
-     - **REGION:** eu-frankfurt-1 
+     - **REGION:** uk-london-1 
      - **COMPARTMENT_OCID:** ocid1.compartment.oc1..aaaaaaaa... <*The OCID of OCI-ORM compartment*>
      - **BACKENDSET_NAME:** ormdemobackendset
      - **BACKENDSET_POLICY:** ROUND_ROBIN
